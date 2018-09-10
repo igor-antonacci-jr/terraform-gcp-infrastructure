@@ -12,9 +12,7 @@ variable "org_id" {
 }
 
 # Existing Project ID
-variable "project_id" {
-  default = ""
-}
+variable "project_id" {}
 
 # Master CIDR Range
 variable "master_cidr_range" {
@@ -27,9 +25,7 @@ variable "agent_cidr_range" {
 }
 
 # GCP Credentials JSON
-variable "credentials_path_json" { 
-  default = ""
-}
+variable "credentials_path_json" {}
 
 # Bootstrap node disk size (gb)
 variable "bootstrap_disk_size" {

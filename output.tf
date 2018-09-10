@@ -58,6 +58,11 @@ output "masters.ssh_user" {
   value = "${module.masters.ssh_user}"
 }
 
+# Master Google Front End Load Balancer Address
+output "masters.gfe.public_ip" {
+  value = "${module.masters.gfe.public_ip}"
+}
+
 # Number of private agents
 output "num_private_agents" {
   value = "${var.num_private_agents}"
@@ -116,6 +121,11 @@ output "public_agents.image" {
 # Deployed public agent SSH user
 output "public_agents.ssh_user" {
   value = "${module.public_agents.ssh_user}"
+}
+
+# Public Agent Google Front End Load Balancer Address
+output "public_agents.gfe.public_ip" {
+  value = "${module.public_agents.gfe.public_ip}"
 }
 
 # GCP Region
