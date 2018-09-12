@@ -14,11 +14,10 @@ resource "random_id" "id" {
 module "network" {
   source = "dcos-terraform/network/gcp"
 
-  # version = "0.0.0"
-
   providers = {
     google = "google"
   }
+
   region            = "${var.region}"
   master_cidr_range = "${var.master_cidr_range}"
   agent_cidr_range  = "${var.agent_cidr_range}"
@@ -27,13 +26,13 @@ module "network" {
 }
 
 module "bootstrap" {
-  source = "dcos-terraform/bootstrap/gcp"
-
-  # version = "0.0.0"
+  source  = "dcos-terraform/bootstrap/gcp"
+  version = "~> 0.0"
 
   providers = {
     google = "google"
   }
+
   disk_size                 = "${coalesce(var.bootstrap_disk_size, var.infra_disk_size)}"
   disk_type                 = "${coalesce(var.bootstrap_disk_type, var.infra_disk_type)}"
   machine_type              = "${coalesce(var.bootstrap_machine_type, var.infra_machine_type)}"
@@ -43,19 +42,21 @@ module "bootstrap" {
   bootstrap_subnetwork_name = "${module.network.agent_subnetwork_name}"
   image                     = "${var.bootstrap_image}"
   dcos_instance_os          = "${coalesce(var.bootstrap_dcos_instance_os, var.infra_dcos_instance_os)}"
+
   # Determine if we need to force a particular region
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
+  tags         = "${var.tags}"
 }
 
 module "masters" {
-  source = "dcos-terraform/masters/gcp"
-
-  # version = "0.0.0"
+  source  = "dcos-terraform/masters/gcp"
+  version = "~> 0.0"
 
   providers = {
     google = "google"
   }
+
   num_masters            = "${var.num_masters}"
   disk_size              = "${coalesce(var.master_disk_size, var.infra_disk_size)}"
   disk_type              = "${coalesce(var.master_disk_type, var.infra_disk_type)}"
@@ -66,19 +67,21 @@ module "masters" {
   master_subnetwork_name = "${module.network.master_subnetwork_name}"
   image                  = "${var.master_image}"
   dcos_instance_os       = "${coalesce(var.master_dcos_instance_os, var.infra_dcos_instance_os)}"
+
   # Determine if we need to force a particular region
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
+  tags         = "${var.tags}"
 }
 
 module "private_agents" {
-  source = "dcos-terraform/private-agents/gcp"
-
-  # version = "0.0.0"
+  source  = "dcos-terraform/private-agents/gcp"
+  version = "~> 0.0"
 
   providers = {
     google = "google"
   }
+
   num_private_agents            = "${var.num_private_agents}"
   disk_size                     = "${coalesce(var.private_agent_disk_size, var.infra_disk_size)}"
   disk_type                     = "${coalesce(var.private_agent_disk_type, var.infra_disk_type)}"
@@ -89,19 +92,21 @@ module "private_agents" {
   private_agent_subnetwork_name = "${module.network.agent_subnetwork_name}"
   image                         = "${var.private_agent_image}"
   dcos_instance_os              = "${coalesce(var.private_agent_dcos_instance_os, var.infra_dcos_instance_os)}"
+
   # Determine if we need to force a particular region
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
+  tags         = "${var.tags}"
 }
 
 module "public_agents" {
-  source = "dcos-terraform/public-agents/gcp"
-
-  # version = "0.0.0"
+  source  = "dcos-terraform/public-agents/gcp"
+  version = "~> 0.0"
 
   providers = {
     google = "google"
   }
+
   num_public_agents            = "${var.num_public_agents}"
   disk_size                    = "${coalesce(var.public_agent_disk_size, var.infra_disk_size)}"
   disk_type                    = "${coalesce(var.public_agent_disk_type, var.infra_disk_type)}"
@@ -112,9 +117,11 @@ module "public_agents" {
   public_agent_subnetwork_name = "${module.network.agent_subnetwork_name}"
   image                        = "${var.public_agent_image}"
   dcos_instance_os             = "${coalesce(var.public_agent_dcos_instance_os, var.infra_dcos_instance_os)}"
+
   # Determine if we need to force a particular region
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
+  tags         = "${var.tags}"
 }
 
 #####################################
