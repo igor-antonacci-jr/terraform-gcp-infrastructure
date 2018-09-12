@@ -1,7 +1,7 @@
 data "google_compute_zones" "available" {}
 
 provider "google" {
-  credentials = "${file(var.credentials_path_json)}"
+  credentials = "${var.credentials}"
   region      = "${var.region}"
   project     = "${var.project_id}"
 }

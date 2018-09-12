@@ -15,7 +15,7 @@ Creates DC/OS Infrastructure
 | gcp_bootstrap_machine_type | Bootstrap node machine type | string | `` | no |
 | gcp_bootstrap_public_ssh_key_path | Bootstrap Node Public SSH Key | string | `` | no |
 | gcp_bootstrap_ssh_user | Bootstrap node SSH User | string | `` | no |
-| gcp_credentials_path_json | GCP Credentials JSON | string | - | yes |
+| gcp_credentials | GCP Credentials JSON | string | - | yes |
 | gcp_master_dcos_instance_os | Master node tested OSes image | string | `` | no |
 | gcp_master_disk_size | Master node disk size (gb) | string | `` | no |
 | gcp_master_disk_type | Master node disk type. Can be either "pd-ssd", "local-ssd", or "pd-standard". | string | `` | no |
