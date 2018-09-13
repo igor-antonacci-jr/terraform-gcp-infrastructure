@@ -28,6 +28,11 @@ output "bootstrap.ssh_user" {
   value = "${module.bootstrap.ssh_user}"
 }
 
+# Returns the ID of the prereq script (if image are not used)
+output "bootstrap.prereq_id" {
+  value = "${module.bootstrap.prereq_id}"
+}
+
 # Number of Masters
 output "num_masters" {
   value = "${var.num_masters}"
