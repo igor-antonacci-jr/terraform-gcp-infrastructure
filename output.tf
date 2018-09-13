@@ -68,6 +68,11 @@ output "masters.gfe.public_ip" {
   value = "${module.masters.gfe.public_ip}"
 }
 
+# Returns the ID of the prereq script (if image are not used)
+output "masters.prereq_id" {
+  value = "${module.masters.prereq_id}"
+}
+
 # Number of private agents
 output "num_private_agents" {
   value = "${var.num_private_agents}"
@@ -96,6 +101,11 @@ output "private_agents.image" {
 # Deployed private agent SSH user
 output "private_agents.ssh_user" {
   value = "${module.private_agents.ssh_user}"
+}
+
+# Returns the ID of the prereq script (if image are not used)
+output "private_agents.prereq_id" {
+  value = "${module.private_agents.prereq_id}"
 }
 
 # Number of public agents
@@ -131,6 +141,11 @@ output "public_agents.ssh_user" {
 # Public Agent Google Front End Load Balancer Address
 output "public_agents.gfe.public_ip" {
   value = "${module.public_agents.gfe.public_ip}"
+}
+
+# Returns the ID of the prereq script (if image are not used)
+output "public_agents.prereq_id" {
+  value = "${module.public_agents.prereq_id}"
 }
 
 # GCP Region
