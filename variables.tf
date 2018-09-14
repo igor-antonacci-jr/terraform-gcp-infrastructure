@@ -1,19 +1,6 @@
 #
 variable "name_prefix" {}
 
-# GCP Builing Account
-variable "billing_account" {
-  default = ""
-}
-
-# GCP Org ID
-variable "org_id" {
-  default = ""
-}
-
-# Existing Project ID
-variable "project_id" {}
-
 # Master CIDR Range
 variable "master_cidr_range" {
   default = "10.64.0.0/16"
@@ -22,11 +9,6 @@ variable "master_cidr_range" {
 # Agent CIDR Range
 variable "agent_cidr_range" {
   default = "10.65.0.0/16"
-}
-
-# GCP Credentials JSON
-variable "credentials" {
-  default = ""
 }
 
 # Bootstrap node disk size (gb)
