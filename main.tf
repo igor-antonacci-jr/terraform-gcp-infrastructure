@@ -1,10 +1,6 @@
-data "google_compute_zones" "available" {}
+provider "google" {}
 
-provider "google" {
-  credentials = "${var.credentials}"
-  region      = "${var.region}"
-  project     = "${var.project_id}"
-}
+data "google_compute_zones" "available" {}
 
 resource "random_id" "id" {
   byte_length = 2
@@ -13,6 +9,7 @@ resource "random_id" "id" {
 
 module "network" {
   source = "dcos-terraform/network/gcp"
+  version = "~> 0.0"
 
   providers = {
     google = "google"
@@ -22,7 +19,6 @@ module "network" {
   master_cidr_range = "${var.master_cidr_range}"
   agent_cidr_range  = "${var.agent_cidr_range}"
   name_prefix       = "${random_id.id.hex}"
-  project_id        = "${var.project_id}"
 }
 
 module "bootstrap" {
