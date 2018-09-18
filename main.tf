@@ -8,7 +8,7 @@ resource "random_id" "id" {
 }
 
 module "network" {
-  source = "dcos-terraform/network/gcp"
+  source  = "dcos-terraform/network/gcp"
   version = "~> 0.0"
 
   providers = {
