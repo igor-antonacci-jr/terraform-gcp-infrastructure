@@ -17,5 +17,5 @@ dcos_version = "1.11.4"
 num_masters = "3"
 num_private_agents = "1"
 num_public_agents = "1"
-dcos_type = "open"
+dcos_variant = "open"
 
