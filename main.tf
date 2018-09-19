@@ -1,3 +1,7 @@
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
 provider "google" {}
 
 data "google_compute_zones" "available" {}
@@ -15,10 +19,19 @@ module "network" {
     google = "google"
   }
 
-  region            = "${var.region}"
   master_cidr_range = "${var.master_cidr_range}"
   agent_cidr_range  = "${var.agent_cidr_range}"
   name_prefix       = "${random_id.id.hex}"
+}
+
+module "compute-firewall" {
+  source  = "dcos-terraform/compute-firewall/gcp"
+  version = "~> 0.0"
+
+  name_prefix      = "${random_id.id.hex}"
+  network          = "${module.network.network_name}"
+  admin_ips        = ["${coalescelist(var.admin_ips, list("${data.http.whatismyip.body}/32"))}"]
+  internal_subnets = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
 }
 
 module "bootstrap" {

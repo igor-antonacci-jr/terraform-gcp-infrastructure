@@ -111,11 +111,6 @@ variable "bootstrap_public_ssh_key_path" {
   default = ""
 }
 
-# GCP Region
-variable "region" {
-  default = ""
-}
-
 # Master node SSH User
 variable "master_ssh_user" {
   default = ""
@@ -182,6 +177,11 @@ variable "private_agent_dcos_instance_os" {
 # Bootstrap node tested OSes image
 variable "bootstrap_dcos_instance_os" {
   default = ""
+}
+
+variable "admin_ips" {
+  description = "List of CIDR admin IPs"
+  default     = []
 }
 
 ##############################

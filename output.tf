@@ -148,11 +148,6 @@ output "public_agents.prereq_id" {
   value = "${module.public_agents.prereq_id}"
 }
 
-# GCP Region
-output "region" {
-  value = "${var.region}"
-}
-
 # Bootstrap private ip
 output "bootstrap.private_ip" {
   value = "${module.bootstrap.private_ip}"
