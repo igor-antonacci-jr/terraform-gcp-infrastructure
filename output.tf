@@ -41,7 +41,7 @@ output "num_masters" {
 # Deployed master disk size
 output "masters.disk_size" {
   value = "${module.masters.disk_size}"
-} # 
+} #
 
 # Deployed master disk type
 output "masters.disk_type" {
@@ -64,8 +64,13 @@ output "masters.ssh_user" {
 }
 
 # Master Google Front End Load Balancer Address
-output "masters.gfe.public_ip" {
-  value = "${module.masters.gfe.public_ip}"
+output "forwarding_rules.masters" {
+  value = "${module.dcos-forwarding-rules.masters_ip_address}"
+}
+
+# Public Agents Google Front End Load Balancer Address
+output "forwarding_rules.public_agents" {
+  value = "${module.dcos-forwarding-rules.public_agents_ip_address}"
 }
 
 # Returns the ID of the prereq script (if image are not used)
@@ -136,11 +141,6 @@ output "public_agents.image" {
 # Deployed public agent SSH user
 output "public_agents.ssh_user" {
   value = "${module.public_agents.ssh_user}"
-}
-
-# Public Agent Google Front End Load Balancer Address
-output "public_agents.gfe.public_ip" {
-  value = "${module.public_agents.gfe.public_ip}"
 }
 
 # Returns the ID of the prereq script (if image are not used)

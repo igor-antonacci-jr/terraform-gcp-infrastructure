@@ -96,7 +96,7 @@ variable "master_public_ssh_key_path" {
   default = ""
 }
 
-# Private Agent node Public SSH Key 
+# Private Agent node Public SSH Key
 variable "private_agent_public_ssh_key_path" {
   default = ""
 }
@@ -142,28 +142,26 @@ variable "infra_ssh_user" {
 }
 
 # Global Infra Public SSH Key
-variable "infra_public_ssh_key_path" {
-  default = ""
-}
+variable "infra_public_ssh_key_path" {}
 
 # Global Infra Disk Type
 variable "infra_disk_type" {
-  default = ""
+  default = "pd-ssd"
 }
 
 # Global Infra Disk Size
 variable "infra_disk_size" {
-  default = ""
+  default = "128"
 }
 
 # Global Infra Machine Type
 variable "infra_machine_type" {
-  default = ""
+  default = "n1-standard-8"
 }
 
 # Global Infra Tested OSes Image
 variable "infra_dcos_instance_os" {
-  default = ""
+  default = "coreos_1576.5.0"
 }
 
 # Master node tested OSes image

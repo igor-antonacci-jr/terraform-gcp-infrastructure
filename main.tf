@@ -120,6 +120,16 @@ module "public_agents" {
   tags         = "${var.tags}"
 }
 
+module "dcos-forwarding-rules" {
+  source  = "dcos-terraform/compute-forwarding-rule-dcos/gcp"
+  version = "~> 0.0.2"
+
+  name_prefix = "${random_id.id.hex}"
+
+  masters_self_link       = ["${module.masters.instances_self_link}"]
+  public_agents_self_link = ["${module.public_agents.instances_self_link}"]
+}
+
 #####################################
 #                                   #
 #  Terraform DCOS Layer             #
