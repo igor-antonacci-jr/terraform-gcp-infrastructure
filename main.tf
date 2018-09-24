@@ -29,7 +29,7 @@ module "compute-firewall" {
   version = "~> 0.0"
 
   name_prefix      = "${random_id.id.hex}"
-  network          = "${module.network.network_name}"
+  network          = "${module.network.self_link}"
   admin_ips        = ["${coalescelist(var.admin_ips, list("${data.http.whatismyip.body}/32"))}"]
   internal_subnets = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
 }
