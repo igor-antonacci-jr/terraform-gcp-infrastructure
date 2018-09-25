@@ -149,16 +149,3 @@ module "dcos-forwarding-rules" {
   masters_self_link       = ["${module.masters.instances_self_link}"]
   public_agents_self_link = ["${module.public_agents.instances_self_link}"]
 }
-
-#####################################
-#                                   #
-#  Terraform DCOS Layer             #
-#####################################
-
-
-#module "terraform-dcos-ssh" {
-#  source = "../terraform-dcos-ssh"
-#
-#  # version = "0.0.0"
-#}
-
