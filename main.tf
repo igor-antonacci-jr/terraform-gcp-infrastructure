@@ -139,7 +139,7 @@ module "public_agents" {
 
 module "dcos-forwarding-rules" {
   source  = "dcos-terraform/compute-forwarding-rule-dcos/gcp"
-  version = "~> 0.0.2"
+  version = "~> 0.0"
 
   providers = {
     google = "google"
