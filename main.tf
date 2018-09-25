@@ -38,6 +38,19 @@ module "compute-firewall" {
   internal_subnets = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
 }
 
+module "dcos-forwarding-rules" {
+  source  = "dcos-terraform/compute-forwarding-rule-dcos/gcp"
+  version = "~> 0.0"
+
+  providers = {
+    google = "google"
+  }
+
+  name_prefix             = "${random_id.id.hex}"
+  masters_self_link       = ["${module.masters.instances_self_link}"]
+  public_agents_self_link = ["${module.public_agents.instances_self_link}"]
+}
+
 module "bootstrap" {
   source  = "dcos-terraform/bootstrap/gcp"
   version = "~> 0.0"
@@ -135,17 +148,4 @@ module "public_agents" {
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
   tags         = "${var.tags}"
-}
-
-module "dcos-forwarding-rules" {
-  source  = "dcos-terraform/compute-forwarding-rule-dcos/gcp"
-  version = "~> 0.0"
-
-  providers = {
-    google = "google"
-  }
-
-  name_prefix             = "${random_id.id.hex}"
-  masters_self_link       = ["${module.masters.instances_self_link}"]
-  public_agents_self_link = ["${module.public_agents.instances_self_link}"]
 }
