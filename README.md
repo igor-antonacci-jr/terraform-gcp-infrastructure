@@ -1,3 +1,4 @@
+[![Build Status](https://jenkins-terraform.mesosphere.com/service/dcos-terraform-jenkins/job/dcos-terraform/job/terraform-gcp-infrastructure/job/master/badge/icon)](https://jenkins-terraform.mesosphere.com/service/dcos-terraform-jenkins/job/dcos-terraform/job/terraform-gcp-infrastructure/job/master/)
 # DC/OS GCP Infrastucture
 
 Creates DC/OS Infrastructure
@@ -7,145 +8,95 @@ Creates DC/OS Infrastructure
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| gcp_billing_account | GCP Builing Account | string | `` | no |
-| gcp_bootstrap_dcos_instance_os | Bootstrap node tested OSes image | string | `` | no |
-| gcp_bootstrap_disk_size | Bootstrap node disk size (gb) | string | `` | no |
-| gcp_bootstrap_disk_type | Bootstrap node disk type. Can be either "pd-ssd", "local-ssd", or "pd-standard". | string | `` | no |
-| gcp_bootstrap_image | Bootstrap node OS image | string | `` | no |
-| gcp_bootstrap_machine_type | Bootstrap node machine type | string | `` | no |
-| gcp_bootstrap_public_ssh_key_path | Bootstrap Node Public SSH Key | string | `` | no |
-| gcp_bootstrap_ssh_user | Bootstrap node SSH User | string | `` | no |
-| gcp_credentials | GCP Credentials JSON | string | - | yes |
-| gcp_master_dcos_instance_os | Master node tested OSes image | string | `` | no |
-| gcp_master_disk_size | Master node disk size (gb) | string | `` | no |
-| gcp_master_disk_type | Master node disk type. Can be either "pd-ssd", "local-ssd", or "pd-standard". | string | `` | no |
-| gcp_master_image | Master node OS image | string | `` | no |
-| gcp_master_machine_type | Master node machine type | string | `` | no |
-| gcp_master_public_ssh_key_path | Master node Public SSH Key | string | `` | no |
-| gcp_master_ssh_user | Master node SSH User | string | `` | no |
-| gcp_org_id | GCP Org ID | string | `` | no |
-| gcp_private_agent_dcos_instance_os | Private agent node tested OSes image | string | `` | no |
-| gcp_private_agent_disk_size | Private agent node disk size (gb) | string | `` | no |
-| gcp_private_agent_disk_type | Private agent node disk type. Can be either "pd-ssd", "local-ssd", or "pd-standard". | string | `` | no |
-| gcp_private_agent_image | Private agent node OS image | string | `` | no |
-| gcp_private_agent_machine_type | Private agent node machine type | string | `` | no |
-| gcp_private_agent_public_ssh_key_path | Private Agent node Public SSH Key | string | `` | no |
-| gcp_private_agent_ssh_user | Private Agent ndoe SSH User | string | `` | no |
-| gcp_project_id | Existing Project ID | string | `` | no |
-| gcp_public_agent_dcos_instance_os | Public Agent node tested OSes image | string | `` | no |
-| gcp_public_agent_disk_size | Public agent disk size (gb) | string | `` | no |
-| gcp_public_agent_disk_type | Public agent node disk type. Can be either "pd-ssd", "local-ssd", or "pd-standard". | string | `` | no |
-| gcp_public_agent_image | Public agent node OS image | string | `` | no |
-| gcp_public_agent_machine_type | Public agent machine type | string | `` | no |
-| gcp_public_agent_public_ssh_key_path | Public Agent node Public SSH Key | string | `` | no |
-| gcp_public_agent_ssh_user | Public Agent node SSH User | string | `` | no |
-| gcp_region | GCP Region | string | `` | no |
-| infra_dcos_instance_os | Global Infra Tested OSes Image | string | `` | no |
-| infra_disk_size | Global Infra Disk Size | string | `` | no |
-| infra_disk_type | Global Infra Disk Type | string | `` | no |
-| infra_machine_type | Global Infra Machine Type | string | `` | no |
-| infra_public_ssh_key_path | Global Infra Public SSH Key | string | `` | no |
-| infra_ssh_user | Global Infra SSH User | string | `` | no |
-| name_prefix |  | string | - | yes |
-| num_masters | Number of Masters | string | `1` | no |
-| num_private_agents | Number of Private Agents | string | `1` | no |
-| num_public_agents | Number of Public Agents | string | `1` | no |
+| admin_ips | List of CIDR admin IPs | string | `<list>` | no |
+| agent_cidr_range | agent cidr range | string | `10.65.0.0/16` | no |
+| bootstrap_dcos_instance_os | bootstrap dcos instance os | string | `` | no |
+| bootstrap_disk_size | bootstrap disk size | string | `` | no |
+| bootstrap_disk_type | bootstrap disk type | string | `` | no |
+| bootstrap_image | bootstrap image | string | `` | no |
+| bootstrap_machine_type | [BOOTSTRAP] Machine type | string | `` | no |
+| bootstrap_public_ssh_key_path | bootstrap public ssh key path | string | `` | no |
+| bootstrap_ssh_user | bootstrap ssh user | string | `` | no |
+| dcos_version | Specifies which DC/OS version instruction to use. Options: 1.9.0, 1.8.8, etc. See dcos_download_path or dcos_version tree for a full list. | string | `1.11.4` | no |
+| infra_dcos_instance_os | infra dcos instance os | string | `coreos_1576.5.0` | no |
+| infra_disk_size | infra disk size | string | `128` | no |
+| infra_disk_type | infra disk type | string | `pd-ssd` | no |
+| infra_machine_type | infra machine type | string | `n1-standard-8` | no |
+| infra_public_ssh_key_path | infra public ssh key path | string | - | yes |
+| infra_ssh_user | infra ssh user | string | `` | no |
+| master_cidr_range | master cidr range | string | `10.64.0.0/16` | no |
+| master_dcos_instance_os | master dcos instance os | string | `` | no |
+| master_disk_size | master disk size | string | `` | no |
+| master_disk_type | master disk type | string | `` | no |
+| master_image | master image | string | `` | no |
+| master_machine_type | master machine type | string | `` | no |
+| master_public_ssh_key_path | master public ssh key path | string | `` | no |
+| master_ssh_user | master ssh user | string | `` | no |
+| name_prefix | Cluster Name | string | - | yes |
+| num_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | `3` | no |
+| num_private_agents | Specify the amount of private agents. These agents will provide your main resources | string | `1` | no |
+| num_public_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | `1` | no |
+| private_agent_dcos_instance_os | private agent dcos instance os | string | `` | no |
+| private_agent_disk_size | private agent disk size | string | `` | no |
+| private_agent_disk_type | private agent disk type | string | `` | no |
+| private_agent_image | private agent image | string | `` | no |
+| private_agent_machine_type | private agent machine type | string | `` | no |
+| private_agent_public_ssh_key_path | private agent public ssh key path | string | `` | no |
+| private_agent_ssh_user | private agent ssh user | string | `` | no |
+| public_agent_dcos_instance_os | public agent dcos instance os | string | `` | no |
+| public_agent_disk_size | public agent disk size | string | `` | no |
+| public_agent_disk_type | public agent disk type | string | `` | no |
+| public_agent_image | public agent image | string | `` | no |
+| public_agent_machine_type | public agent machine type | string | `` | no |
+| public_agent_public_ssh_key_path | public agent public ssh key path | string | `` | no |
+| public_agent_ssh_user | public agent ssh user | string | `` | no |
+| tags | Add custom tags to all resources | list | `<list>` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| bootstrap_private_ips | Bootstrap private ip |
-| bootstrap_public_ips | Bootstrap public ip |
-| gcp_bootstrap_dcos_instance_os | Bootstrap node tested OSes image |
-| gcp_bootstrap_disk_size | Deployed Bootstrap disk size |
-| gcp_bootstrap_disk_type | Deployed Bootstrap disk type |
-| gcp_bootstrap_image | Deployed bootstrap image |
-| gcp_bootstrap_machine_type | Deployed bootstrap machine type |
-| gcp_master_dcos_instance_os | Master node tested OSes image |
-| gcp_master_disk_size | Deployed master disk size |
-| gcp_master_disk_type | Deployed master disk type |
-| gcp_master_image | Deployed master image |
-| gcp_master_machine_type | Deployed master machine type |
-| gcp_private_agent_dcos_instance_os | Private agent node tested OSes image |
-| gcp_private_agent_disk_size | Deployed private agent disk size |
-| gcp_private_agent_disk_type | Deployed private agent disk type |
-| gcp_private_agent_image | Deployed private agent image |
-| gcp_private_agent_machine_type | Deployed private agent machine type |
-| gcp_public_agent_dcos_instance_os | Public Agent node tested OSes image |
-| gcp_public_agent_disk_size | Deployed public agent disk size |
-| gcp_public_agent_disk_type | Deployed public agent disk type |
-| gcp_public_agent_image | provided public agent OS image |
-| gcp_public_agent_machine_type | Deployed public agent machine type |
-| gcp_region | GCP Region |
-| masters_private_ips | masters private ip |
-| masters_public_ips | masters public ip |
+| bootstrap.dcos_instance_os | Bootstrap node tested OSes image |
+| bootstrap.disk_size | Deployed Bootstrap disk size |
+| bootstrap.disk_type | Deployed Bootstrap disk type |
+| bootstrap.image | Deployed bootstrap image |
+| bootstrap.machine_type | Deployed bootstrap machine type |
+| bootstrap.prereq_id | Returns the ID of the prereq script (if image are not used) |
+| bootstrap.private_ip | Bootstrap private ip |
+| bootstrap.public_ip | Bootstrap public ip |
+| bootstrap.ssh_user | Deployed bootstrap agent SSH user |
+| dcos_version | DCOS Version |
+| forwarding_rules.masters | Master Google Front End Load Balancer Address |
+| forwarding_rules.public_agents | Public Agents Google Front End Load Balancer Address |
+| masters.dcos_instance_os | Master node tested OSes image |
+| masters.disk_size | Deployed master disk size |
+| masters.disk_type | Deployed master disk type |
+| masters.image | Deployed master image |
+| masters.machine_type | Deployed master machine type |
+| masters.prereq_id | Returns the ID of the prereq script (if image are not used) |
+| masters.private_ips | masters private ip |
+| masters.public_ips | masters public ip |
+| masters.ssh_user | Deployed masters agent SSH user |
 | name_prefix | Deployed Name Prefix |
 | num_masters | Number of Masters |
 | num_private_agents | Number of private agents |
 | num_public_agents | Number of public agents |
-| private-agent_private_ips | private-agent private ip |
-| private-agent_public_ips | private-agent public ip |
-| public-agent_private_ips | public-agent private ip |
-| public-agent_public_ips | public-agent public ip |
+| private_agents.dcos_instance_os | Private agent node tested OSes image |
+| private_agents.disk_size | Deployed private agent disk size |
+| private_agents.disk_type | Deployed private agent disk type |
+| private_agents.image | Deployed private agent image |
+| private_agents.machine_type | Deployed private agent machine type |
+| private_agents.prereq_id | Returns the ID of the prereq script (if image are not used) |
+| private_agents.private_ips | private_agent private ip |
+| private_agents.public_ips | private_agent public ip |
+| private_agents.ssh_user | Deployed private agent SSH user |
+| public_agents.dcos_instance_os | Public Agent node tested OSes image |
+| public_agents.disk_size | Deployed public agent disk size |
+| public_agents.disk_type | Deployed public agent disk type |
+| public_agents.image | provided public agent OS image |
+| public_agents.machine_type | Deployed public agent machine type |
+| public_agents.prereq_id | Returns the ID of the prereq script (if image are not used) |
+| public_agents.private_ips | public_agent private ip |
+| public_agents.public_ips | public_agent public ip |
+| public_agents.ssh_user | Deployed public agent SSH user |
 
-
-## Sample Output
-
-```bash
-Outputs:
-
-bootstrap_private_ips = [
-    10.11.0.3
-]
-bootstrap_public_ips = [
-    35.233.164.102
-]
-gcp_bootstrap_dcos_instance_os = coreos_1576.5.0
-gcp_bootstrap_disk_size = 128
-gcp_bootstrap_disk_type = pd-ssd
-gcp_bootstrap_image =
-gcp_bootstrap_machine_type = f1-micro
-gcp_master_dcos_instance_os = coreos_1576.5.0
-gcp_master_disk_size = 128
-gcp_master_disk_type = pd-ssd
-gcp_master_image =
-gcp_master_machine_type = f1-micro
-gcp_private_agent_dcos_instance_os = coreos_1576.5.0
-gcp_private_agent_disk_size = 128
-gcp_private_agent_disk_type = pd-ssd
-gcp_private_agent_image =
-gcp_private_agent_machine_type = f1-micro
-gcp_public_agent_dcos_instance_os = coreos_1576.5.0
-gcp_public_agent_disk_size = 128
-gcp_public_agent_disk_type = pd-ssd
-gcp_public_agent_image =
-gcp_public_agent_machine_type = f1-micro
-gcp_region = us-west1
-masters_private_ips = [
-    10.10.0.2,
-    10.10.0.3,
-    10.10.0.4
-]
-masters_public_ips = [
-    35.230.89.51,
-    104.199.117.82,
-    104.198.109.232
-]
-name_prefix = mbernadin
-num_masters = 3
-num_private_agents = 1
-num_public_agents = 1
-private-agent_private_ips = [
-    10.11.0.2
-]
-private-agent_public_ips = [
-    35.233.187.129
-]
-public-agent_private_ips = [
-    10.11.0.4
-]
-public-agent_public_ips = [
-    35.203.140.142
-]
-```
