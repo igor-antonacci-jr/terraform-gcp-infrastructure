@@ -29,7 +29,7 @@ variable "bootstrap_disk_type" {
 
 # Bootstrap node machine type
 variable "bootstrap_machine_type" {
-  description = "bootstrap machine type"
+  description = "[BOOTSTRAP] Machine type"
   default = ""
 }
 
