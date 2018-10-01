@@ -220,7 +220,7 @@ variable "bootstrap_dcos_instance_os" {
 
 variable "admin_ips" {
   description = "List of CIDR admin IPs"
-  default     = []
+  type        = "list"
 }
 
 ##############################

@@ -8,7 +8,7 @@ Creates DC/OS Infrastructure
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| admin_ips | List of CIDR admin IPs | string | `<list>` | no |
+| admin_ips | List of CIDR admin IPs | list | - | yes |
 | agent_cidr_range | agent cidr range | string | `10.65.0.0/16` | no |
 | bootstrap_dcos_instance_os | bootstrap dcos instance os | string | `` | no |
 | bootstrap_disk_size | bootstrap disk size | string | `` | no |

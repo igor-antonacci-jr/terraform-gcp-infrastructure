@@ -5,10 +5,6 @@
  * Creates DC/OS Infrastructure
  */
 
-data "http" "whatismyip" {
-  url = "http://whatismyip.akamai.com/"
-}
-
 provider "google" {}
 
 data "google_compute_zones" "available" {}
@@ -41,7 +37,7 @@ module "compute-firewall" {
 
   name_prefix      = "${random_id.id.hex}"
   network          = "${module.network.self_link}"
-  admin_ips        = ["${coalescelist(var.admin_ips, list("${data.http.whatismyip.body}/32"))}"]
+  admin_ips        = ["${var.admin_ips}"]
   internal_subnets = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
 }
 
