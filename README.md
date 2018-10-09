@@ -1,4 +1,5 @@
 [![Build Status](https://jenkins-terraform.mesosphere.com/service/dcos-terraform-jenkins/job/dcos-terraform/job/terraform-gcp-infrastructure/job/master/badge/icon)](https://jenkins-terraform.mesosphere.com/service/dcos-terraform-jenkins/job/dcos-terraform/job/terraform-gcp-infrastructure/job/master/)
+
 # DC/OS GCP Infrastucture
 
 This module creates typical DS/OS infrastructure in GCP.
@@ -17,6 +18,7 @@ module "dcos-infrastructure" {
   num_public_agents = "1"
 }
 ```
+
 
 ## Inputs
 
