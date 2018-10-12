@@ -264,3 +264,9 @@ variable "labels" {
   type        = "map"
   default     = {}
 }
+
+variable "public_agents_additional_ports" {
+  description = "List of additional ports allowed for public access on public agents (80 and 443 open by default)"
+  type        = "list"
+  default     = []
+}

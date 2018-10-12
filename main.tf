@@ -21,6 +21,16 @@
  * ```
  */
 
+data "null_data_source" "lb_rules" {
+  count = "${length(var.public_agents_additional_ports)}"
+
+  inputs = {
+    port_range            = "${element(var.public_agents_additional_ports, count.index)}"
+    load_balancing_scheme = "EXTERNAL"
+    ip_protocol           = "TCP"
+  }
+}
+
 provider "google" {}
 
 data "google_compute_zones" "available" {}
@@ -46,10 +56,11 @@ module "compute-firewall" {
     google = "google"
   }
 
-  cluster_name     = "${var.cluster_name}"
-  network          = "${module.network.self_link}"
-  admin_ips        = ["${var.admin_ips}"]
-  internal_subnets = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
+  cluster_name                   = "${var.cluster_name}"
+  network                        = "${module.network.self_link}"
+  admin_ips                      = ["${var.admin_ips}"]
+  internal_subnets               = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
+  public_agents_additional_ports = ["${var.public_agents_additional_ports}"]
 }
 
 module "dcos-forwarding-rules" {
@@ -60,9 +71,10 @@ module "dcos-forwarding-rules" {
     google = "google"
   }
 
-  cluster_name            = "${var.cluster_name}"
-  masters_self_link       = ["${module.masters.instances_self_link}"]
-  public_agents_self_link = ["${module.public_agents.instances_self_link}"]
+  cluster_name                   = "${var.cluster_name}"
+  masters_self_link              = ["${module.masters.instances_self_link}"]
+  public_agents_self_link        = ["${module.public_agents.instances_self_link}"]
+  public_agents_additional_rules = ["${data.null_data_source.lb_rules.*.outputs}"]
 
   labels = "${var.labels}"
 }

@@ -41,6 +41,7 @@ module "dcos-infrastructure" {
 | infra_machine_type | infra machine type | string | `n1-standard-8` | no |
 | infra_public_ssh_key_path | infra public ssh key path | string | - | yes |
 | infra_ssh_user | infra ssh user | string | `` | no |
+| labels | Add custom labels to all resources | map | `<map>` | no |
 | master_cidr_range | master cidr range | string | `10.64.0.0/16` | no |
 | master_dcos_instance_os | master dcos instance os | string | `` | no |
 | master_disk_size | master disk size | string | `` | no |
@@ -66,6 +67,7 @@ module "dcos-infrastructure" {
 | public_agent_machine_type | public agent machine type | string | `` | no |
 | public_agent_public_ssh_key_path | public agent public ssh key path | string | `` | no |
 | public_agent_ssh_user | public agent ssh user | string | `` | no |
+| public_agents_additional_ports | List of additional ports allowed for public access on public agents (80 and 443 open by default) | list | `<list>` | no |
 | tags | Add custom tags to all resources | list | `<list>` | no |
 
 ## Outputs
