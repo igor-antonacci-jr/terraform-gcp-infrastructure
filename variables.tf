@@ -258,3 +258,9 @@ variable "tags" {
   type        = "list"
   default     = []
 }
+
+variable "labels" {
+  description = "Add custom labels to all resources"
+  type        = "map"
+  default     = {}
+}

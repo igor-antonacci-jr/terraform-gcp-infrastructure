@@ -63,6 +63,8 @@ module "dcos-forwarding-rules" {
   cluster_name            = "${var.cluster_name}"
   masters_self_link       = ["${module.masters.instances_self_link}"]
   public_agents_self_link = ["${module.public_agents.instances_self_link}"]
+
+  labels = "${var.labels}"
 }
 
 module "bootstrap" {
@@ -87,6 +89,7 @@ module "bootstrap" {
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
   tags         = "${var.tags}"
+  labels       = "${var.labels}"
 }
 
 module "masters" {
@@ -112,6 +115,7 @@ module "masters" {
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
   tags         = "${var.tags}"
+  labels       = "${var.labels}"
 }
 
 module "private_agents" {
@@ -137,6 +141,7 @@ module "private_agents" {
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
   tags         = "${var.tags}"
+  labels       = "${var.labels}"
 }
 
 module "public_agents" {
@@ -162,4 +167,5 @@ module "public_agents" {
   zone_list    = "${data.google_compute_zones.available.names}"
   dcos_version = "${var.dcos_version}"
   tags         = "${var.tags}"
+  labels       = "${var.labels}"
 }
