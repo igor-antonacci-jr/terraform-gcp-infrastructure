@@ -33,6 +33,7 @@ module "dcos-infrastructure" {
 | bootstrap_machine_type | [BOOTSTRAP] Machine type | string | `` | no |
 | bootstrap_public_ssh_key_path | bootstrap public ssh key path | string | `` | no |
 | bootstrap_ssh_user | bootstrap ssh user | string | `` | no |
+| cluster_name | Cluster Name | string | - | yes |
 | dcos_version | Specifies which DC/OS version instruction to use. Options: 1.9.0, 1.8.8, etc. See dcos_download_path or dcos_version tree for a full list. | string | `1.11.4` | no |
 | infra_dcos_instance_os | infra dcos instance os | string | `coreos_1576.5.0` | no |
 | infra_disk_size | infra disk size | string | `128` | no |
@@ -48,7 +49,6 @@ module "dcos-infrastructure" {
 | master_machine_type | master machine type | string | `` | no |
 | master_public_ssh_key_path | master public ssh key path | string | `` | no |
 | master_ssh_user | master ssh user | string | `` | no |
-| name_prefix | Cluster Name | string | - | yes |
 | num_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | `3` | no |
 | num_private_agents | Specify the amount of private agents. These agents will provide your main resources | string | `1` | no |
 | num_public_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | `1` | no |

@@ -1,6 +1,6 @@
 # Specify GCP Credentials JSON below
 project_id = "massive-bliss-781"
-name_prefix = "mbernadin"
+cluster_name = "mbernadin"
 dcos_cluster_name = "Prod Cluster"
 infra_disk_type = "pd-ssd" # Optional
 infra_disk_size = "128"

@@ -1,7 +1,7 @@
 # Deployed Name Prefix
 output "name_prefix" {
   description = "Cluster Name"
-  value       = "${var.name_prefix}"
+  value       = "${var.cluster_name}"
 }
 
 # Deployed Bootstrap disk size
