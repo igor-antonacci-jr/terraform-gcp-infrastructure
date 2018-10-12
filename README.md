@@ -74,45 +74,20 @@ module "dcos-infrastructure" {
 
 | Name | Description |
 |------|-------------|
-| bootstrap.dcos_instance_os | Bootstrap node tested OSes image |
-| bootstrap.disk_size | Deployed Bootstrap disk size |
-| bootstrap.disk_type | Deployed Bootstrap disk type |
-| bootstrap.image | Deployed bootstrap image |
-| bootstrap.machine_type | Deployed bootstrap machine type |
 | bootstrap.prereq_id | Returns the ID of the prereq script (if image are not used) |
 | bootstrap.private_ip | Bootstrap private ip |
 | bootstrap.public_ip | Bootstrap public ip |
 | bootstrap.ssh_user | Deployed bootstrap agent SSH user |
-| dcos_version | DCOS Version |
 | forwarding_rules.masters | Master Google Front End Load Balancer Address |
 | forwarding_rules.public_agents | Public Agents Google Front End Load Balancer Address |
-| masters.dcos_instance_os | Master node tested OSes image |
-| masters.disk_size | Deployed master disk size |
-| masters.disk_type | Deployed master disk type |
-| masters.image | Deployed master image |
-| masters.machine_type | Deployed master machine type |
 | masters.prereq_id | Returns the ID of the prereq script (if image are not used) |
 | masters.private_ips | masters private ip |
 | masters.public_ips | masters public ip |
 | masters.ssh_user | Deployed masters agent SSH user |
-| name_prefix | Deployed Name Prefix |
-| num_masters | Number of Masters |
-| num_private_agents | Number of private agents |
-| num_public_agents | Number of public agents |
-| private_agents.dcos_instance_os | Private agent node tested OSes image |
-| private_agents.disk_size | Deployed private agent disk size |
-| private_agents.disk_type | Deployed private agent disk type |
-| private_agents.image | Deployed private agent image |
-| private_agents.machine_type | Deployed private agent machine type |
 | private_agents.prereq_id | Returns the ID of the prereq script (if image are not used) |
 | private_agents.private_ips | private_agent private ip |
 | private_agents.public_ips | private_agent public ip |
 | private_agents.ssh_user | Deployed private agent SSH user |
-| public_agents.dcos_instance_os | Public Agent node tested OSes image |
-| public_agents.disk_size | Deployed public agent disk size |
-| public_agents.disk_type | Deployed public agent disk type |
-| public_agents.image | provided public agent OS image |
-| public_agents.machine_type | Deployed public agent machine type |
 | public_agents.prereq_id | Returns the ID of the prereq script (if image are not used) |
 | public_agents.private_ips | public_agent private ip |
 | public_agents.public_ips | public_agent public ip |
