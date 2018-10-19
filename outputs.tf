@@ -1,60 +1,60 @@
 # Deployed bootstrap agent SSH user
 output "bootstrap.ssh_user" {
-  description = "bootstrap.ssh user"
+  description = "Bootstrap node SSH User"
   value       = "${module.bootstrap.ssh_user}"
 }
 
 # Returns the ID of the prereq script (if image are not used)
 output "bootstrap.prereq_id" {
-  description = "bootstrap.prereq id"
+  description = "Returns the ID of the prereq script (if image are not used)"
   value       = "${module.bootstrap.prereq_id}"
 }
 
 # Deployed masters agent SSH user
 output "masters.ssh_user" {
-  description = "masters.ssh user"
+  description = "Deployed masters agent SSH user"
   value       = "${module.masters.ssh_user}"
 }
 
 # Master Google Front End Load Balancer Address
 output "forwarding_rules.masters" {
-  description = "forwarding rules.masters"
+  description = "Master Forwarding Rules"
   value       = "${module.dcos-forwarding-rules.masters_ip_address}"
 }
 
 # Public Agents Google Front End Load Balancer Address
 output "forwarding_rules.public_agents" {
-  description = "forwarding rules.public agents"
+  description = "Public Agents Forwarding Rules"
   value       = "${module.dcos-forwarding-rules.public_agents_ip_address}"
 }
 
 # Returns the ID of the prereq script (if image are not used)
 output "masters.prereq_id" {
-  description = "masters.prereq id"
+  description = "Returns the ID of the prereq script for masters (if user_data or ami are not used)"
   value       = "${module.masters.prereq_id}"
 }
 
 # Deployed private agent SSH user
 output "private_agents.ssh_user" {
-  description = "private agents.ssh user"
+  description = "Deployed private agent SSH user"
   value       = "${module.private_agents.ssh_user}"
 }
 
 # Returns the ID of the prereq script (if image are not used)
 output "private_agents.prereq_id" {
-  description = "private agents.prereq id"
+  description = "Returns the ID of the prereq script for private agents (if image are not used)"
   value       = "${module.private_agents.prereq_id}"
 }
 
 # Deployed public agent SSH user
 output "public_agents.ssh_user" {
-  description = "public agents.ssh user"
+  description = "Deployed public agent SSH user"
   value       = "${module.public_agents.ssh_user}"
 }
 
 # Returns the ID of the prereq script (if image are not used)
 output "public_agents.prereq_id" {
-  description = "public agents.prereq id"
+  description = "Returns the ID of the prereq script for public agents (if image are not used)"
   value       = "${module.public_agents.prereq_id}"
 }
 
