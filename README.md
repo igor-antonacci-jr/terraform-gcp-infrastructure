@@ -28,7 +28,7 @@ module "dcos-infrastructure" {
 | agent_cidr_range | Agent CIDR Range | string | `10.65.0.0/16` | no |
 | bootstrap_dcos_instance_os | Bootstrap node tested OSes image | string | `` | no |
 | bootstrap_disk_size | Bootstrap node disk size (gb) | string | `` | no |
-| bootstrap_disk_type | Bootstrap node disk type | string | `` | no |
+| bootstrap_disk_type | Bootstrap node disk type. | string | `` | no |
 | bootstrap_image | Bootstrap node OS image | string | `` | no |
 | bootstrap_machine_type | Bootstrap node machine type | string | `` | no |
 | bootstrap_public_ssh_key_path | Bootstrap Node Public SSH Key | string | `` | no |
