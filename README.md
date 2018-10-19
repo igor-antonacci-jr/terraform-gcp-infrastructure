@@ -79,7 +79,7 @@ module "dcos-infrastructure" {
 | bootstrap.public_ip | Public IP of the bootstrap instance |
 | bootstrap.ssh_user | Bootstrap node SSH User |
 | forwarding_rules.masters | Master Forwarding Rules |
-| forwarding_rules.public_agents | Public Agents Forwarding Rules |
+| forwarding_rules.public_agents | Public Agent Forwarding Rules |
 | masters.prereq_id | Returns the ID of the prereq script for masters (if user_data or ami are not used) |
 | masters.private_ips | Master instances private IPs |
 | masters.public_ips | Master instances public IPs |
