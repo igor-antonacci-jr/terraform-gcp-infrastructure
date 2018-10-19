@@ -89,7 +89,7 @@ module "dcos-infrastructure" {
 | private_agents.public_ips | Private Agent public IPs |
 | private_agents.ssh_user | Deployed priavte agent SSH user |
 | public_agents.prereq_id | Returns the ID of the prereq script for public agents (if image are not used) |
-| public_agents.private_ips | Private Agent instances private IPs |
-| public_agents.public_ips | Private Agent public IPs |
+| public_agents.private_ips | Public Agent instances private IPs |
+| public_agents.public_ips | Public Agent public IPs |
 | public_agents.ssh_user | Deployed public agent SSH user |
 
