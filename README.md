@@ -59,7 +59,7 @@ module "dcos-infrastructure" {
 | private_agent_image | Private agent node OS image | string | `` | no |
 | private_agent_machine_type | Private agent node machine type | string | `` | no |
 | private_agent_public_ssh_key_path | Private Agent node Public SSH Key | string | `` | no |
-| private_agent_ssh_user | Private Agent ndoe SSH User | string | `` | no |
+| private_agent_ssh_user | Private Agent node SSH User | string | `` | no |
 | public_agent_dcos_instance_os | Public Agent node tested OSes image | string | `` | no |
 | public_agent_disk_size | Public agent disk size (gb) | string | `` | no |
 | public_agent_disk_type | Public agent node disk type. | string | `` | no |
