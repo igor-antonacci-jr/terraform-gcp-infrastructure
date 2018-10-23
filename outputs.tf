@@ -19,7 +19,7 @@ output "forwarding_rules.masters" {
 }
 
 output "forwarding_rules.public_agents" {
-  description = "Public Agents Forwarding Rules"
+  description = "Public Agent Forwarding Rules"
   value       = "${module.dcos-forwarding-rules.public_agents_ip_address}"
 }
 
@@ -79,11 +79,11 @@ output "private_agents.private_ips" {
 }
 
 output "public_agents.public_ips" {
-  description = "Private Agent public IPs"
+  description = "Public Agent public IPs"
   value       = "${module.public_agents.public_ips}"
 }
 
 output "public_agents.private_ips" {
-  description = "Private Agent instances private IPs"
+  description = "Public Agent instances private IPs"
   value       = "${module.public_agents.private_ips}"
 }
