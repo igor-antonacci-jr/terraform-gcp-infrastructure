@@ -9,7 +9,7 @@
  *
  * ```hcl
  * module "dcos-infrastructure" {
- *   source  = "terraform-dcos/infrastructure/gcp"
+ *   source  = "dcos-terraform/infrastructure/gcp"
  *   version = "~> 0.1"
  *
  *   infra_public_ssh_key_path = "~/.ssh/id_rsa.pub"
