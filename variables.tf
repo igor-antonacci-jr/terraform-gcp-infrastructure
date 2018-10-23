@@ -18,7 +18,7 @@ variable "bootstrap_disk_size" {
 }
 
 variable "bootstrap_disk_type" {
-  description = "Bootstrap node disk type"
+  description = "Bootstrap node disk type."
   default     = ""
 }
 
@@ -28,7 +28,7 @@ variable "bootstrap_machine_type" {
 }
 
 variable "bootstrap_image" {
-  description = "Bootstrap node OS image"
+  description = "[BOOTSTRAP] Image to be used"
   default     = ""
 }
 
