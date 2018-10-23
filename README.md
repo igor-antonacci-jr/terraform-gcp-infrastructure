@@ -28,7 +28,7 @@ module "dcos-infrastructure" {
 | agent_cidr_range | Agent CIDR Range | string | `10.65.0.0/16` | no |
 | bootstrap_dcos_instance_os | Bootstrap node tested OSes image | string | `` | no |
 | bootstrap_disk_size | Bootstrap node disk size (gb) | string | `` | no |
-| bootstrap_disk_type | Bootstrap node disk type. | string | `` | no |
+| bootstrap_disk_type | Bootstrap node disk type | string | `` | no |
 | bootstrap_image | Bootstrap node OS image | string | `` | no |
 | bootstrap_machine_type | Bootstrap node machine type | string | `` | no |
 | bootstrap_public_ssh_key_path | Bootstrap Node Public SSH Key | string | `` | no |
@@ -79,7 +79,7 @@ module "dcos-infrastructure" {
 | bootstrap.public_ip | Public IP of the bootstrap instance |
 | bootstrap.ssh_user | Bootstrap node SSH User |
 | forwarding_rules.masters | Master Forwarding Rules |
-| forwarding_rules.public_agents | Public Agent Forwarding Rules |
+| forwarding_rules.public_agents | Public Agents Forwarding Rules |
 | masters.prereq_id | Returns the ID of the prereq script for masters (if user_data or ami are not used) |
 | masters.private_ips | Master instances private IPs |
 | masters.public_ips | Master instances public IPs |
@@ -89,7 +89,7 @@ module "dcos-infrastructure" {
 | private_agents.public_ips | Private Agent public IPs |
 | private_agents.ssh_user | Deployed private agent SSH user |
 | public_agents.prereq_id | Returns the ID of the prereq script for public agents (if image are not used) |
-| public_agents.private_ips | Public Agent instances private IPs |
-| public_agents.public_ips | Public Agent public IPs |
+| public_agents.private_ips | Private Agent instances private IPs |
+| public_agents.public_ips | Private Agent public IPs |
 | public_agents.ssh_user | Deployed public agent SSH user |
 
