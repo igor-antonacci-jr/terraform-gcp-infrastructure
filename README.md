@@ -9,7 +9,7 @@ This module creates typical DS/OS infrastructure in GCP.
 ```hcl
 module "dcos-infrastructure" {
   source  = "dcos-terraform/infrastructure/gcp"
-  version = "~> 0.1"
+  version = "~> 0.1.0"
 
   infra_public_ssh_key_path = "~/.ssh/id_rsa.pub"
 
@@ -30,7 +30,7 @@ module "dcos-infrastructure" {
 | bootstrap_disk_size | Bootstrap node disk size (gb) | string | `` | no |
 | bootstrap_disk_type | Bootstrap node disk type. | string | `` | no |
 | bootstrap_image | [BOOTSTRAP] Image to be used | string | `` | no |
-| bootstrap_machine_type | Bootstrap node machine type | string | `` | no |
+| bootstrap_machine_type | [BOOTSTRAP] Machine type | string | `` | no |
 | bootstrap_public_ssh_key_path | Bootstrap Node Public SSH Key | string | `` | no |
 | bootstrap_ssh_user | Bootstrap node SSH User | string | `` | no |
 | cluster_name | Name of the DC/OS cluster | string | - | yes |
