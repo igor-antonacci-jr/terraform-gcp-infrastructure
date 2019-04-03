@@ -1,16 +1,16 @@
-output "bootstrap.ssh_user" {
+output "bootstrap.os_user" {
   description = "Bootstrap node SSH User"
-  value       = "${module.bootstrap.ssh_user}"
+  value       = "${module.bootstrap.os_user}"
 }
 
-output "bootstrap.prereq_id" {
+output "bootstrap.prereq-id" {
   description = "Returns the ID of the prereq script (if image are not used)"
-  value       = "${module.bootstrap.prereq_id}"
+  value       = "${module.bootstrap.prereq-id}"
 }
 
-output "masters.ssh_user" {
+output "masters.os_user" {
   description = "Deployed masters agent SSH user"
-  value       = "${module.masters.ssh_user}"
+  value       = "${module.masters.os_user}"
 }
 
 output "forwarding_rules.masters" {
@@ -23,29 +23,29 @@ output "forwarding_rules.public_agents" {
   value       = "${module.dcos-forwarding-rules.public_agents_ip_address}"
 }
 
-output "masters.prereq_id" {
+output "masters.prereq-id" {
   description = "Returns the ID of the prereq script for masters (if user_data or ami are not used)"
-  value       = "${module.masters.prereq_id}"
+  value       = "${module.masters.prereq-id}"
 }
 
-output "private_agents.ssh_user" {
+output "private_agents.os_user" {
   description = "Deployed private agent SSH user"
-  value       = "${module.private_agents.ssh_user}"
+  value       = "${module.private_agents.os_user}"
 }
 
-output "private_agents.prereq_id" {
+output "private_agents.prereq-id" {
   description = "Returns the ID of the prereq script for private agents (if image are not used)"
-  value       = "${module.private_agents.prereq_id}"
+  value       = "${module.private_agents.prereq-id}"
 }
 
-output "public_agents.ssh_user" {
+output "public_agents.os_user" {
   description = "Deployed public agent SSH user"
-  value       = "${module.public_agents.ssh_user}"
+  value       = "${module.public_agents.os_user}"
 }
 
-output "public_agents.prereq_id" {
+output "public_agents.prereq-id" {
   description = "Returns the ID of the prereq script for public agents (if image are not used)"
-  value       = "${module.public_agents.prereq_id}"
+  value       = "${module.public_agents.prereq-id}"
 }
 
 output "bootstrap.private_ip" {
