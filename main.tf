@@ -10,7 +10,7 @@
  * ```hcl
  * module "dcos-infrastructure" {
  *   source  = "dcos-terraform/infrastructure/gcp"
- *   version = "~> 0.1.0"
+ *   version = "~> 0.2.0"
  *
  *   infra_public_ssh_key_path = "~/.ssh/id_rsa.pub"
  *
@@ -50,7 +50,7 @@ module "network" {
 
 module "compute-firewall" {
   source  = "dcos-terraform/compute-firewall/gcp"
-  version = "~> 0.1.0"
+  version = "~> 0.2.0"
 
   providers = {
     google = "google"
