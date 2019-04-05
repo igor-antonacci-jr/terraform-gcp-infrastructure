@@ -1,15 +1,15 @@
 output "bootstrap.os_user" {
-  description = "Bootstrap node SSH User"
+  description = "Bootstrap instance OS default user"
   value       = "${module.bootstrap.os_user}"
 }
 
 output "bootstrap.prereq-id" {
-  description = "Returns the ID of the prereq script (if image are not used)"
+  description = "Returns the ID of the prereq script for bootstrap (if user_data or ami are not used)"
   value       = "${module.bootstrap.prereq-id}"
 }
 
 output "masters.os_user" {
-  description = "Deployed masters agent SSH user"
+  description = "Master instances private OS default user"
   value       = "${module.masters.os_user}"
 }
 
@@ -29,22 +29,22 @@ output "masters.prereq-id" {
 }
 
 output "private_agents.os_user" {
-  description = "Deployed private agent SSH user"
+  description = "Private Agent instances private OS default user"
   value       = "${module.private_agents.os_user}"
 }
 
 output "private_agents.prereq-id" {
-  description = "Returns the ID of the prereq script for private agents (if image are not used)"
+  description = "Returns the ID of the prereq script for private agents (if user_data or ami are not used)"
   value       = "${module.private_agents.prereq-id}"
 }
 
 output "public_agents.os_user" {
-  description = "Deployed public agent SSH user"
+  description = "Private Agent instances private OS default user"
   value       = "${module.public_agents.os_user}"
 }
 
 output "public_agents.prereq-id" {
-  description = "Returns the ID of the prereq script for public agents (if image are not used)"
+  description = "Returns the ID of the prereq script for public agents (if user_data or ami are not used)"
   value       = "${module.public_agents.prereq-id}"
 }
 
