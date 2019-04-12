@@ -59,7 +59,7 @@ output "bootstrap.public_ip" {
 }
 
 output "masters.zone_list" {
-  description = "Private Agent public IPs"
+  description = "Master instances zone list"
   value       = "${data.google_compute_zones.available.names}"
 }
 
@@ -79,7 +79,7 @@ output "masters.subnetwork_name" {
 }
 
 output "private_agents.zone_list" {
-  description = "Private Agent public IPs"
+  description = "Private Agent zone list"
   value       = "${data.google_compute_zones.available.names}"
 }
 
@@ -99,7 +99,7 @@ output "private_agents.subnetwork_name" {
 }
 
 output "public_agents.zone_list" {
-  description = "Private Agent public IPs"
+  description = "Public Agent zone list"
   value       = "${data.google_compute_zones.available.names}"
 }
 
