@@ -24,6 +24,8 @@ module "dcos-infrastructure" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | admin\_ips | List of CIDR admin IPs | list | n/a | yes |
+| cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
+| infra\_public\_ssh\_key\_path | Global Infra Public SSH Key | string | n/a | yes |
 | agent\_cidr\_range | Agent CIDR Range | string | `"10.65.0.0/16"` | no |
 | bootstrap\_dcos\_instance\_os | Bootstrap node tested OSes image | string | `""` | no |
 | bootstrap\_disk\_size | Bootstrap node disk size (gb) | string | `""` | no |
@@ -32,13 +34,11 @@ module "dcos-infrastructure" {
 | bootstrap\_machine\_type | [BOOTSTRAP] Machine type | string | `""` | no |
 | bootstrap\_public\_ssh\_key\_path | Bootstrap Node Public SSH Key | string | `""` | no |
 | bootstrap\_ssh\_user | Bootstrap node SSH User | string | `""` | no |
-| cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
 | dcos\_version | Specifies which DC/OS version instruction to use. Options: 1.12.3, 1.11.10, etc. See dcos_download_path or dcos_version tree for a full list. | string | `"1.11.4"` | no |
 | infra\_dcos\_instance\_os | Global Infra Tested OSes Image | string | `"coreos_1576.5.0"` | no |
 | infra\_disk\_size | Global Infra Disk Size | string | `"128"` | no |
 | infra\_disk\_type | Global Infra Disk Type | string | `"pd-ssd"` | no |
 | infra\_machine\_type | Global Infra Machine Type | string | `"n1-standard-8"` | no |
-| infra\_public\_ssh\_key\_path | Global Infra Public SSH Key | string | n/a | yes |
 | infra\_ssh\_user | Global Infra SSH User | string | `""` | no |
 | labels | Add custom labels to all resources | map | `<map>` | no |
 | master\_cidr\_range | Master CIDR Range | string | `"10.64.0.0/16"` | no |
@@ -83,12 +83,15 @@ module "dcos-infrastructure" {
 | masters.prereq-id | Returns the ID of the prereq script for masters (if user_data or ami are not used) |
 | masters.private\_ips | Master instances private IPs |
 | masters.public\_ips | Master instances public IPs |
+| masters.subnetwork\_name | Master instances subnetwork name |
 | private\_agents.os\_user | Private Agent instances private OS default user |
 | private\_agents.prereq-id | Returns the ID of the prereq script for private agents (if user_data or ami are not used) |
 | private\_agents.private\_ips | Private Agent instances private IPs |
 | private\_agents.public\_ips | Private Agent public IPs |
+| private\_agents.subnetwork\_name | Private Agent instances subnetwork name |
 | public\_agents.os\_user | Private Agent instances private OS default user |
 | public\_agents.prereq-id | Returns the ID of the prereq script for public agents (if user_data or ami are not used) |
 | public\_agents.private\_ips | Public Agent instances private IPs |
 | public\_agents.public\_ips | Public Agent public IPs |
+| public\_agents.subnetwork\_name | Public Agent instances subnetwork name |
 
