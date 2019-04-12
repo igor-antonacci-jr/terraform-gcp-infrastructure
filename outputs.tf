@@ -68,6 +68,11 @@ output "masters.private_ips" {
   value       = "${module.masters.private_ips}"
 }
 
+output "masters.subnetwork_name" {
+  description = "Master instances subnetwork name"
+  value       = "${module.masters.master_subnetwork_name}"
+}
+
 output "private_agents.public_ips" {
   description = "Private Agent public IPs"
   value       = "${module.private_agents.public_ips}"
@@ -78,6 +83,11 @@ output "private_agents.private_ips" {
   value       = "${module.private_agents.private_ips}"
 }
 
+output "private_agents.subnetwork_name" {
+  description = "Private Agent instances subnetwork name"
+  value       = "${module.private_agents.agent_subnetwork_name}"
+}
+
 output "public_agents.public_ips" {
   description = "Public Agent public IPs"
   value       = "${module.public_agents.public_ips}"
@@ -86,4 +96,9 @@ output "public_agents.public_ips" {
 output "public_agents.private_ips" {
   description = "Public Agent instances private IPs"
   value       = "${module.public_agents.private_ips}"
+}
+
+output "public_agents.subnetwork_name" {
+  description = "Public Agent instances subnetwork name"
+  value       = "${module.public_agents.agent_subnetwork_name}"
 }
