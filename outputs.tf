@@ -39,7 +39,7 @@ output "private_agents.prereq-id" {
 }
 
 output "public_agents.os_user" {
-  description = "Private Agent instances private OS default user"
+  description = "Public Agent instances private OS default user"
   value       = "${module.public_agents.os_user}"
 }
 
@@ -58,6 +58,11 @@ output "bootstrap.public_ip" {
   value       = "${module.bootstrap.public_ip}"
 }
 
+output "masters.zone_list" {
+  description = "Private Agent public IPs"
+  value       = "${data.google_compute_zones.available.names}"
+}
+
 output "masters.public_ips" {
   description = "Master instances public IPs"
   value       = "${module.masters.public_ips}"
@@ -73,6 +78,11 @@ output "masters.subnetwork_name" {
   value       = "${module.masters.master_subnetwork_name}"
 }
 
+output "private_agents.zone_list" {
+  description = "Private Agent public IPs"
+  value       = "${data.google_compute_zones.available.names}"
+}
+
 output "private_agents.public_ips" {
   description = "Private Agent public IPs"
   value       = "${module.private_agents.public_ips}"
@@ -86,6 +96,11 @@ output "private_agents.private_ips" {
 output "private_agents.subnetwork_name" {
   description = "Private Agent instances subnetwork name"
   value       = "${module.private_agents.private_agent_subnetwork_name}"
+}
+
+output "public_agents.zone_list" {
+  description = "Private Agent public IPs"
+  value       = "${data.google_compute_zones.available.names}"
 }
 
 output "public_agents.public_ips" {
