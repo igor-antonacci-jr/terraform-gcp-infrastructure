@@ -84,14 +84,17 @@ module "dcos-infrastructure" {
 | masters.private\_ips | Master instances private IPs |
 | masters.public\_ips | Master instances public IPs |
 | masters.subnetwork\_name | Master instances subnetwork name |
+| masters.zone\_list | Master instances zone list |
 | private\_agents.os\_user | Private Agent instances private OS default user |
 | private\_agents.prereq-id | Returns the ID of the prereq script for private agents (if user_data or ami are not used) |
 | private\_agents.private\_ips | Private Agent instances private IPs |
 | private\_agents.public\_ips | Private Agent public IPs |
 | private\_agents.subnetwork\_name | Private Agent instances subnetwork name |
-| public\_agents.os\_user | Private Agent instances private OS default user |
+| private\_agents.zone\_list | Private Agent zone list |
+| public\_agents.os\_user | Public Agent instances private OS default user |
 | public\_agents.prereq-id | Returns the ID of the prereq script for public agents (if user_data or ami are not used) |
 | public\_agents.private\_ips | Public Agent instances private IPs |
 | public\_agents.public\_ips | Public Agent public IPs |
 | public\_agents.subnetwork\_name | Public Agent instances subnetwork name |
+| public\_agents.zone\_list | Public Agent zone list |
 
