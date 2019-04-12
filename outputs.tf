@@ -85,7 +85,7 @@ output "private_agents.private_ips" {
 
 output "private_agents.subnetwork_name" {
   description = "Private Agent instances subnetwork name"
-  value       = "${module.private_agents.agent_subnetwork_name}"
+  value       = "${module.private_agents.private_agent_subnetwork_name}"
 }
 
 output "public_agents.public_ips" {
@@ -100,5 +100,5 @@ output "public_agents.private_ips" {
 
 output "public_agents.subnetwork_name" {
   description = "Public Agent instances subnetwork name"
-  value       = "${module.public_agents.agent_subnetwork_name}"
+  value       = "${module.public_agents.public_agent_subnetwork_name}"
 }
