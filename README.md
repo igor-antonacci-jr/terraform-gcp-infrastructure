@@ -34,7 +34,7 @@ module "dcos-infrastructure" {
 | bootstrap\_machine\_type | [BOOTSTRAP] Machine type | string | `""` | no |
 | bootstrap\_public\_ssh\_key\_path | Bootstrap Node Public SSH Key | string | `""` | no |
 | bootstrap\_ssh\_user | Bootstrap node SSH User | string | `""` | no |
-| dcos\_version | Specifies which DC/OS version instruction to use. Options: 1.9.0, 1.8.8, etc. See dcos_download_path or dcos_version tree for a full list. | string | `"1.11.4"` | no |
+| dcos\_version | Specifies which DC/OS version instruction to use. Options: 1.12.3, 1.11.10, etc. See dcos_download_path or dcos_version tree for a full list. | string | `"1.11.4"` | no |
 | infra\_dcos\_instance\_os | Global Infra Tested OSes Image | string | `"coreos_1576.5.0"` | no |
 | infra\_disk\_size | Global Infra Disk Size | string | `"128"` | no |
 | infra\_disk\_type | Global Infra Disk Type | string | `"pd-ssd"` | no |
