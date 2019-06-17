@@ -234,3 +234,13 @@ variable "accepted_internal_networks" {
   type        = "list"
   default     = []
 }
+
+variable "forwarding_rule_disable_masters" {
+  description = "Do not create fowarding rules for masters (admin access + internal access)"
+  default     = false
+}
+
+variable "forwarding_rule_disable_public_agents" {
+  description = "Do not create forwarding rules for public agents. ( Needs to be true when num_public_agents is 0 )"
+  default     = false
+}
