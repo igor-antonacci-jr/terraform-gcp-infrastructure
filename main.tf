@@ -21,6 +21,10 @@
  * ```
  */
 
+locals {
+  internal_subnets = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
+}
+
 data "null_data_source" "lb_rules" {
   count = "${length(var.public_agents_additional_ports)}"
 
@@ -59,7 +63,7 @@ module "compute-firewall" {
   cluster_name                   = "${var.cluster_name}"
   network                        = "${module.network.self_link}"
   admin_ips                      = ["${var.admin_ips}"]
-  internal_subnets               = ["${var.master_cidr_range}", "${var.agent_cidr_range}"]
+  internal_subnets               = "${coalescelist(var.accepted_internal_networks, local.internal_subnets)}"
   public_agents_additional_ports = ["${var.public_agents_additional_ports}"]
 }
 

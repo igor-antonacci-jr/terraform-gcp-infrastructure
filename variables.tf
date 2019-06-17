@@ -203,7 +203,7 @@ variable "num_public_agents" {
 
 variable "dcos_version" {
   description = "Specifies which DC/OS version instruction to use. Options: 1.12.3, 1.11.10, etc. See dcos_download_path or dcos_version tree for a full list."
-  default     = "1.11.4"
+  default     = "1.13.1"
 }
 
 variable "tags" {
@@ -220,6 +220,12 @@ variable "labels" {
 
 variable "public_agents_additional_ports" {
   description = "List of additional ports allowed for public access on public agents (80 and 443 open by default)"
+  type        = "list"
+  default     = []
+}
+
+variable "accepted_internal_networks" {
+  description = "Subnet ranges for all internal networks"
   type        = "list"
   default     = []
 }
