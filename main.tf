@@ -95,6 +95,7 @@ module "bootstrap" {
     google = "google"
   }
 
+  num_bootstrap             = "${var.num_bootstrap}"
   disk_size                 = "${coalesce(var.bootstrap_disk_size, var.infra_disk_size)}"
   disk_type                 = "${coalesce(var.bootstrap_disk_type, var.infra_disk_type)}"
   machine_type              = "${coalesce(var.bootstrap_machine_type, var.infra_machine_type)}"
