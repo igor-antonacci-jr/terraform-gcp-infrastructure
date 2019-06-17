@@ -50,6 +50,7 @@ module "network" {
   master_cidr_range = "${var.master_cidr_range}"
   agent_cidr_range  = "${var.agent_cidr_range}"
   cluster_name      = "${var.cluster_name}"
+  name_prefix       = "${var.name_prefix}"
 }
 
 module "compute-firewall" {
