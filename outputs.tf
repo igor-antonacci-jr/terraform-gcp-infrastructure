@@ -120,5 +120,5 @@ output "public_agents.subnetwork_name" {
 
 output "network_self_link" {
   description = "Self link of the created network"
-  value       = "${module.network.google_compute_network.network.self_link}"
+  value       = "${module.network.self_link}"
 }
