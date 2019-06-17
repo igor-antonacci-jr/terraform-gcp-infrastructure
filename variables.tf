@@ -224,6 +224,11 @@ variable "public_agents_additional_ports" {
   default     = []
 }
 
+variable "name_prefix" {
+  description = "Name Prefix"
+  default     = ""
+}
+
 variable "accepted_internal_networks" {
   description = "Subnet ranges for all internal networks"
   type        = "list"
