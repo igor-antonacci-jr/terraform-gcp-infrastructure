@@ -117,3 +117,8 @@ output "public_agents.subnetwork_name" {
   description = "Public Agent instances subnetwork name"
   value       = "${module.public_agents.public_agent_subnetwork_name}"
 }
+
+output "network_self_link" {
+  description = "Self link of the created network"
+  value       = "${module.network.google_compute_network.network.self_link}"
+}
