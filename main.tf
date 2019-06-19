@@ -110,10 +110,9 @@ module "bootstrap" {
   dcos_instance_os          = "${coalesce(var.bootstrap_dcos_instance_os, var.infra_dcos_instance_os)}"
 
   # Determine if we need to force a particular region
-  zone_list    = "${data.google_compute_zones.available.names}"
-  dcos_version = "${var.dcos_version}"
-  tags         = "${var.tags}"
-  labels       = "${var.labels}"
+  zone_list = "${data.google_compute_zones.available.names}"
+  tags      = "${var.tags}"
+  labels    = "${var.labels}"
 }
 
 module "masters" {
@@ -136,10 +135,9 @@ module "masters" {
   dcos_instance_os       = "${coalesce(var.master_dcos_instance_os, var.infra_dcos_instance_os)}"
 
   # Determine if we need to force a particular region
-  zone_list    = "${data.google_compute_zones.available.names}"
-  dcos_version = "${var.dcos_version}"
-  tags         = "${var.tags}"
-  labels       = "${var.labels}"
+  zone_list = "${data.google_compute_zones.available.names}"
+  tags      = "${var.tags}"
+  labels    = "${var.labels}"
 }
 
 module "private_agents" {
@@ -163,10 +161,9 @@ module "private_agents" {
   dcos_instance_os              = "${coalesce(var.private_agent_dcos_instance_os, var.infra_dcos_instance_os)}"
 
   # Determine if we need to force a particular region
-  zone_list    = "${data.google_compute_zones.available.names}"
-  dcos_version = "${var.dcos_version}"
-  tags         = "${var.tags}"
-  labels       = "${var.labels}"
+  zone_list = "${data.google_compute_zones.available.names}"
+  tags      = "${var.tags}"
+  labels    = "${var.labels}"
 }
 
 module "public_agents" {
@@ -190,8 +187,7 @@ module "public_agents" {
   dcos_instance_os             = "${coalesce(var.public_agent_dcos_instance_os, var.infra_dcos_instance_os)}"
 
   # Determine if we need to force a particular region
-  zone_list    = "${data.google_compute_zones.available.names}"
-  dcos_version = "${var.dcos_version}"
-  tags         = "${var.tags}"
-  labels       = "${var.labels}"
+  zone_list = "${data.google_compute_zones.available.names}"
+  tags      = "${var.tags}"
+  labels    = "${var.labels}"
 }
