@@ -26,6 +26,7 @@ module "dcos-infrastructure" {
 | admin\_ips | List of CIDR admin IPs | list | n/a | yes |
 | cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
 | infra\_public\_ssh\_key\_path | Global Infra Public SSH Key | string | n/a | yes |
+| accepted\_internal\_networks | Subnet ranges for all internal networks | list | `<list>` | no |
 | agent\_cidr\_range | Agent CIDR Range | string | `"10.65.0.0/16"` | no |
 | bootstrap\_dcos\_instance\_os | Bootstrap node tested OSes image | string | `""` | no |
 | bootstrap\_disk\_size | Bootstrap node disk size (gb) | string | `""` | no |
@@ -34,7 +35,8 @@ module "dcos-infrastructure" {
 | bootstrap\_machine\_type | [BOOTSTRAP] Machine type | string | `""` | no |
 | bootstrap\_public\_ssh\_key\_path | Bootstrap Node Public SSH Key | string | `""` | no |
 | bootstrap\_ssh\_user | Bootstrap node SSH User | string | `""` | no |
-| dcos\_version | Specifies which DC/OS version instruction to use. Options: 1.12.3, 1.11.10, etc. See dcos_download_path or dcos_version tree for a full list. | string | `"1.11.4"` | no |
+| forwarding\_rule\_disable\_masters | Do not create fowarding rules for masters (admin access + internal access) | string | `"false"` | no |
+| forwarding\_rule\_disable\_public\_agents | Do not create forwarding rules for public agents. ( Needs to be true when num_public_agents is 0 ) | string | `"false"` | no |
 | infra\_dcos\_instance\_os | Global Infra Tested OSes Image | string | `"coreos_1576.5.0"` | no |
 | infra\_disk\_size | Global Infra Disk Size | string | `"128"` | no |
 | infra\_disk\_type | Global Infra Disk Type | string | `"pd-ssd"` | no |
@@ -49,6 +51,8 @@ module "dcos-infrastructure" {
 | master\_machine\_type | Master node machine type | string | `""` | no |
 | master\_public\_ssh\_key\_path | Master node Public SSH Key | string | `""` | no |
 | master\_ssh\_user | Master node SSH User | string | `""` | no |
+| name\_prefix | Name Prefix | string | `""` | no |
+| num\_bootstrap | Specify the amount of bootstrap. You should have at most 1 | string | `"1"` | no |
 | num\_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | `"3"` | no |
 | num\_private\_agents | Specify the amount of private agents. These agents will provide your main resources | string | `"1"` | no |
 | num\_public\_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | `"1"` | no |
@@ -85,6 +89,7 @@ module "dcos-infrastructure" {
 | masters.public\_ips | Master instances public IPs |
 | masters.subnetwork\_name | Master instances subnetwork name |
 | masters.zone\_list | Master instances zone list |
+| network\_self\_link | Self link of the created network |
 | private\_agents.os\_user | Private Agent instances private OS default user |
 | private\_agents.prereq-id | Returns the ID of the prereq script for private agents (if user_data or ami are not used) |
 | private\_agents.private\_ips | Private Agent instances private IPs |
