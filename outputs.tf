@@ -122,3 +122,8 @@ output "network_self_link" {
   description = "Self link of the created network"
   value       = "${module.network.self_link}"
 }
+
+output "private_agents_instances_self_link" {
+  description = "List of instance self links"
+  value       = ["${module.private_agents.instances_self_link}"]
+}
