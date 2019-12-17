@@ -72,7 +72,8 @@ module "compute-firewall" {
 }
 
 module "dcos-forwarding-rules" {
-  source  = "dcos-terraform/compute-forwarding-rule-dcos/gcp"
+  #source  = "dcos-terraform/compute-forwarding-rule-dcos/gcp"
+  source = "github.com/igor-antonacci-jr/terraform-gcp-compute-forwarding-rule-dcos"
   version = "~> 0.2.0"
 
   providers = {
