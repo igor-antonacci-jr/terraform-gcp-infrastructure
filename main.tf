@@ -41,7 +41,8 @@ provider "google" {}
 data "google_compute_zones" "available" {}
 
 module "network" {
-  source  = "dcos-terraform/network/gcp"
+  #source  = "dcos-terraform/network/gcp"
+  source = "github.com/igor-antonacci-jr/terraform-gcp-network"
   version = "~> 0.2.0"
 
   providers = {
@@ -53,6 +54,8 @@ module "network" {
   disable_master_subnet = "${var.num_masters < 1 ? true : false}"
   cluster_name          = "${var.cluster_name}"
   name_prefix           = "${var.name_prefix}"
+  #sob-679 changes
+  cluster_network_name  = "${var.cluster_network_name}"
 }
 
 module "compute-firewall" {
