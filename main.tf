@@ -68,7 +68,7 @@ module "compute-firewall" {
 
   cluster_name                   = "${var.cluster_name}"
   name_prefix                    = "${var.name_prefix}"
-  network                        = "${module.network.self_link}"
+  network                        = "${module.data.network.self_link}"
   admin_ips                      = ["${var.admin_ips}"]
   internal_subnets               = "${local.internal_subnets}"
   public_agents_additional_ports = ["${var.public_agents_additional_ports}"]
